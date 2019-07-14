@@ -53,7 +53,22 @@ bool Screen::createWindow() {
   return true;
 }
 
-bool Screen::processEvents() {}
+void Screen::update() {
+  SDL_UpdateTexture(texture_, NULL, buffer_, SCREEN_WIDTH * sizeof(Uint32));
+  SDL_RenderClear(renderer_);
+  SDL_RenderCopy(renderer_, texture_, NULL, NULL);
+  SDL_RenderPresent(renderer_);
+}
+
+bool Screen::processEvents() {
+  while (SDL_PollEvent(&event_)) {
+    if (event_.type == SDL_QUIT) {
+      cout << "event: " << SDL_PollEvent(&event_) << endl;
+      return true;
+    }
+  }
+  return false;
+}
 
 void Screen::destroyScreen() {
   SDL_DestroyRenderer(renderer_);

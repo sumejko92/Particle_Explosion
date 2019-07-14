@@ -12,6 +12,7 @@ public:
   bool init();
   bool processEvents();
   void destroyScreen();
+  void update();
 
   ~Screen();
 
