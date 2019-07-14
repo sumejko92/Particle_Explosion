@@ -1,3 +1,11 @@
+#include "../include/Screen.h"
 #include <iostream>
 
-int main() { std::cout << "Hello Easy C++ project!" << std::endl; }
+using namespace std;
+
+int main() {
+
+  Screen screen;
+
+  return 0;
+}
