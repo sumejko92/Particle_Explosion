@@ -12,4 +12,5 @@ public:
   double y_;
 
   Particle();
+  void update(int interval);
 };
