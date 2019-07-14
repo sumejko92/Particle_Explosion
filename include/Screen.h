@@ -13,6 +13,7 @@ public:
   bool processEvents();
   void update();
   void setPixel(int x, int y, Uint8 r, Uint8 g, Uint8 b);
+  void clear();
   void destroyScreen();
 
   ~Screen();

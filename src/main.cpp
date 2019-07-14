@@ -22,6 +22,7 @@ int main() {
   while (true) {
     int elapsed = SDL_GetTicks();
 
+    screen.clear();
     swarm.update(elapsed);
 
     // generate changing color based on ticks

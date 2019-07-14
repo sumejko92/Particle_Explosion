@@ -84,6 +84,10 @@ void Screen::setPixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
   buffer_[(y * SCREEN_WIDTH) + x] = color;
 }
 
+void Screen::clear() {
+  memset(buffer_, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+}
+
 bool Screen::processEvents() {
   while (SDL_PollEvent(&event_)) {
     if (event_.type == SDL_QUIT) {
