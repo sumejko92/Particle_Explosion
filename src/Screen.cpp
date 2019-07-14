@@ -67,6 +67,7 @@ void Screen::update() {
 
 void Screen::setPixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
 
+  // dont set pixels out of the window limits
   if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
     return;
 
