@@ -65,6 +65,35 @@ void Screen::update() {
   SDL_RenderPresent(renderer_);
 }
 
+void Screen::setPixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
+
+  if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
+    return;
+
+  Uint32 color = 0;
+
+  color = color + r;
+  color = color << 8;
+  color = color + g;
+  color = color << 8;
+  color = color + b;
+  color = color << 8;
+  color = color + 0xFF;
+
+  buffer_[(y * SCREEN_WIDTH) + x] = color;
+}
+
+bool Screen::processEvents() {
+
+  while (SDL_PollEvent(&event_)) {
+    if (event_.type == SDL_QUIT) {
+      cout << "event: " << SDL_PollEvent(&event_) << endl;
+      return true;
+    }
+  }
+  return false;
+};
+
 bool Screen::processEvents() {
   while (SDL_PollEvent(&event_)) {
     if (event_.type == SDL_QUIT) {
