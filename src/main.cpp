@@ -1,3 +1,4 @@
+#include "../include/Particle.h"
 #include "../include/Screen.h"
 #include <iostream>
 
@@ -13,8 +14,14 @@ int main() {
     return 1;
   }
 
+  Particle particle;
+  int x = (particle.x_ + 1) * (Screen::SCREEN_WIDTH / 2);
+  int y = (particle.y_) * Screen::SCREEN_WIDTH / 2 + Screen::SCREEN_HEIGHT / 2;
+
   while (true) {
     screen.update();
+
+    screen.setPixel(x, y, 255, 0, 0);
 
     if (screen.processEvents()) {
       break;
