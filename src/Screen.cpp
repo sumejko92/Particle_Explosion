@@ -18,6 +18,11 @@ bool Screen::init() {
     return false;
   }
 
+  buffer_ = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+  memset(buffer_, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+
+  update();
+
   return true;
 }
 
@@ -71,6 +76,8 @@ bool Screen::processEvents() {
 }
 
 void Screen::destroyScreen() {
+  delete[] buffer_;
+
   SDL_DestroyRenderer(renderer_);
   SDL_DestroyTexture(texture_);
   SDL_DestroyWindow(window_);
