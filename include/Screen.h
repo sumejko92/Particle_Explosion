@@ -11,6 +11,7 @@ public:
 
   bool init();
   bool processEvents();
+  void destroyScreen();
 
   ~Screen();
 

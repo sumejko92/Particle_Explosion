@@ -14,6 +14,10 @@ bool Screen::init() {
   }
   cout << "SDL initialization succeeded." << endl;
 
+  if (!createWindow()) {
+    return false;
+  }
+
   return true;
 }
 
@@ -50,5 +54,12 @@ bool Screen::createWindow() {
 }
 
 bool Screen::processEvents() {}
+
+void Screen::destroyScreen() {
+  SDL_DestroyRenderer(renderer_);
+  SDL_DestroyTexture(texture_);
+  SDL_DestroyWindow(window_);
+  SDL_Quit();
+}
 
 Screen::~Screen() {}
