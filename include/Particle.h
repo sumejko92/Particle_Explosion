@@ -3,6 +3,13 @@
 class Particle {
 
 public:
-    Particle();
-    ~Particle();
+private:
+  double speed_;
+  double direction_;
+
+public:
+  double x_;
+  double y_;
+
+  Particle();
 };
