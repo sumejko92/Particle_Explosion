@@ -13,5 +13,15 @@ int main() {
     return 1;
   }
 
+  while (true) {
+    screen.update();
+
+    if (screen.processEvents()) {
+      break;
+    }
+  }
+
+  screen.destroyScreen();
+
   return 0;
 }
