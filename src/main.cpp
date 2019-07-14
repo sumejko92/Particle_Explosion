@@ -1,4 +1,5 @@
 #include "../include/Particle.h"
+#include "../include/ParticleSwarm.h"
 #include "../include/Screen.h"
 #include <iostream>
 
@@ -14,18 +15,32 @@ int main() {
     return 1;
   }
 
-  Particle particle;
-  int x = (particle.x_ + 1) * (Screen::SCREEN_WIDTH / 2);
-  int y = (particle.y_) * Screen::SCREEN_WIDTH / 2 + Screen::SCREEN_HEIGHT / 2;
+  ParticleSwarm swarm;
+
+  int elapsed = SDL_GetTicks();
 
   while (true) {
-    screen.update();
+    int elapsed = SDL_GetTicks();
 
-    screen.setPixel(x, y, 255, 0, 0);
+    swarm.update(elapsed);
+
+    const Particle *const particles = swarm.getParticles();
+
+    for (int i = 0; i < ParticleSwarm::NPARTICLES; i++) {
+      Particle particle = particles[i];
+
+      int x = (particle.x_ + 1) * (Screen::SCREEN_WIDTH / 2);
+      int y =
+          (particle.y_) * Screen::SCREEN_WIDTH / 2 + Screen::SCREEN_HEIGHT / 2;
+
+      screen.setPixel(x, y, 255, 0, 0);
+    };
 
     if (screen.processEvents()) {
       break;
     }
+
+    screen.update();
   }
 
   screen.destroyScreen();
