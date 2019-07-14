@@ -13,6 +13,7 @@ void Particle::update(int interval) {
   x_ = x_ + xspeed * interval;
   y_ = y_ + yspeed * interval;
 
+  // change speed if window limits are reached
   if (x_ < -1.0 || x_ > 1.0) {
     speed_ = -speed_;
   }
