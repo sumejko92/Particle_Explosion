@@ -85,17 +85,6 @@ void Screen::setPixel(int x, int y, Uint8 r, Uint8 g, Uint8 b) {
 }
 
 bool Screen::processEvents() {
-
-  while (SDL_PollEvent(&event_)) {
-    if (event_.type == SDL_QUIT) {
-      cout << "event: " << SDL_PollEvent(&event_) << endl;
-      return true;
-    }
-  }
-  return false;
-};
-
-bool Screen::processEvents() {
   while (SDL_PollEvent(&event_)) {
     if (event_.type == SDL_QUIT) {
       cout << "event: " << SDL_PollEvent(&event_) << endl;
