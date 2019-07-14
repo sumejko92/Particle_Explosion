@@ -24,6 +24,11 @@ int main() {
 
     swarm.update(elapsed);
 
+    // generate changing color based on ticks
+    double green = (1 + sin(elapsed * 0.001)) * 128;
+    double red = (1 + sin(elapsed * 0.002)) * 128;
+    double blue = (1 + sin(elapsed * 0.003)) * 128;
+
     const Particle *const particles = swarm.getParticles();
 
     for (int i = 0; i < ParticleSwarm::NPARTICLES; i++) {
@@ -33,7 +38,7 @@ int main() {
       int y =
           (particle.y_) * Screen::SCREEN_WIDTH / 2 + Screen::SCREEN_HEIGHT / 2;
 
-      screen.setPixel(x, y, 255, 0, 0);
+      screen.setPixel(x, y, red, green, blue);
     };
 
     if (screen.processEvents()) {
