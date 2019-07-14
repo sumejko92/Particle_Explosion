@@ -1,8 +1,26 @@
 #pragma once
 
-class Screen {
+#include <SDL2/SDL.h>
 
+class Screen {
 public:
-    Screen();
-    ~Screen();
+  const static int SCREEN_WIDTH = 800;
+  const static int SCREEN_HEIGHT = 600;
+
+  Screen();
+
+  bool init();
+  bool processEvents();
+
+  ~Screen();
+
+private:
+  SDL_Window *window_;
+  SDL_Renderer *renderer_;
+  SDL_Texture *texture_;
+  Uint32 *buffer_;
+
+  SDL_Event event_;
+
+  bool createWindow();
 };
