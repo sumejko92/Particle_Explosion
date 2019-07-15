@@ -1,9 +1,11 @@
 #include "../include/Particle.h"
 #include "../include/ParticleSwarm.h"
 #include "../include/Screen.h"
+#include <chrono>
 #include <iostream>
 
 using namespace std;
+using milli = std::chrono::milliseconds;
 
 int main() {
 
@@ -20,6 +22,8 @@ int main() {
   int elapsed = SDL_GetTicks();
 
   while (true) {
+    // auto start = std::chrono::high_resolution_clock::now();
+
     int elapsed = SDL_GetTicks();
 
     screen.clear();
@@ -47,6 +51,11 @@ int main() {
     }
 
     screen.update();
+
+    // auto finish = std::chrono::high_resolution_clock::now();
+    // std::cout << "loop() took "
+    //           << std::chrono::duration_cast<milli>(finish - start).count()
+    //           << " milliseconds\n";
   }
 
   screen.destroyScreen();
