@@ -13,10 +13,14 @@ https://wiki.libsdl.org/Installation
 
 Navigate to your project directory.  
 Compile with:  
+```
 g++ src/main.cpp src/Screen.cpp src/Particle.cpp src/ParticleSwarm.cpp -lSDL2 -lSDL2main -o bin/particle_explosion  
+```
 
 Run with:  
+```
 ./bin/particle_explosion  
+```
 
 When executed, a number of particles will be created in the center of the screen and will simulate a particle explosion in all directions with particles constantly changing color. In addition the particles are bouncing off the window edges and contained inside the window.  
 The number of particles can be set using the NPARTICLES variable in ParticleSwarm.h  
