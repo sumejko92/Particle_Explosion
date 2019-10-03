@@ -23,8 +23,8 @@ Run with:
 ```
 
 When executed, a number of particles will be created in the center of the screen and will simulate a particle explosion in all directions with particles constantly changing color. In addition the particles are bouncing off the window edges and contained inside the window.  
-The number of particles can be set using the NPARTICLES variable in ParticleSwarm.h  
-The speed of the particles can be set using the speed_seed_ variable in Particle.h  
+The number of particles can be set using the `NPARTICLES` variable in `ParticleSwarm.h`  
+The speed of the particles can be set using the `speed_seed_` variable in `Particle.h`  
 
 ## Results
 
