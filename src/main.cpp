@@ -7,7 +7,7 @@
 using namespace std;
 using milli = std::chrono::milliseconds;
 
-int main() {
+int main(int argc, char **argv) {
 
   Screen screen;
 
@@ -18,6 +18,9 @@ int main() {
   }
 
   ParticleSwarm swarm;
+
+  if(argv[1])
+    swarm.NPARTICLES = atoi(argv[1]);
 
   int elapsed = SDL_GetTicks();
 
@@ -36,7 +39,7 @@ int main() {
 
     const Particle *const particles = swarm.getParticles();
 
-    for (int i = 0; i < ParticleSwarm::NPARTICLES; i++) {
+    for (int i = 0; i < swarm.NPARTICLES; i++) {
       Particle particle = particles[i];
 
       int x = (particle.x_ + 1) * (Screen::SCREEN_WIDTH / 2);

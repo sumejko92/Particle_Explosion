@@ -3,7 +3,7 @@
 
 class ParticleSwarm {
 public:
-  const static int NPARTICLES = 5000;
+  int NPARTICLES = 5000;
 
   ParticleSwarm();
   ~ParticleSwarm();

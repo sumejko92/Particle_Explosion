@@ -17,9 +17,14 @@ Compile with:
 g++ src/main.cpp src/Screen.cpp src/Particle.cpp src/ParticleSwarm.cpp -lSDL2 -lSDL2main -o bin/particle_explosion  
 ```
 
-Run with:  
+Run with:
+For default number of particles (5000)  
 ```
 ./bin/particle_explosion  
+```
+For custom number of particles, add number of particles when executing e.g.
+```
+./bin/particle_explosion 1000
 ```
 
 When executed, a number of particles will be created in the center of the screen and will simulate a particle explosion in all directions with particles constantly changing color. In addition the particles are bouncing off the window edges and contained inside the window.  
